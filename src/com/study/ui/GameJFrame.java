@@ -124,43 +124,31 @@ public class GameJFrame extends JFrame implements KeyListener{
         aboutJMenu.add(coderItem);
 
         animalImg.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //更改图片目录为随机动物
-                        path="image/animal/animal"+new Random().nextInt(1,9)+"/";
-                        //重新开始
-                        count=0;
-                        initData();
-                        initImage();
-                    }
+                e -> {
+                    //更改图片目录为随机动物
+                    path="image/animal/animal"+new Random().nextInt(1,9)+"/";
+                    //重新开始
+                    count=0;
+                    initData();
+                    initImage();
                 }
         );
         sportImg.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //更改图片目录为随机动物
-                        path="image/sport/sport"+new Random().nextInt(1,11)+"/";
-                        //重新开始
-                        count=0;
-                        initData();
-                        initImage();
-                    }
+                e -> {
+                    //更改图片目录为随机动物
+                    path="image/sport/sport"+new Random().nextInt(1,11)+"/";
+                    //重新开始
+                    count=0;
+                    initData();
+                    initImage();
                 }
         );
         replayItem.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //重新开始
-                        count=0;
-                        initData();
-                        initImage();
-                    }
+                e -> {
+                    //重新开始
+                    count=0;
+                    initData();
+                    initImage();
                 }
         );
         /*relogItem.addActionListener(
@@ -177,31 +165,23 @@ public class GameJFrame extends JFrame implements KeyListener{
                 }
         );*/
         closeItem.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //关闭游戏
-                        System.exit(0);
-                    }
+                e -> {
+                    //关闭游戏
+                    System.exit(0);
                 }
         );
         coderItem.addActionListener(
-                new ActionListener() {
-
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //关于作者
-                        JDialog dialog = new JDialog();
-                        JLabel label = new JLabel(new ImageIcon("image/about.jpg"));
-                        label.setBounds(0,0,479,479);
-                        dialog.getContentPane().add(label);
-                        dialog.setSize(500,500);
-                        dialog.setLocationRelativeTo(null);
-                        dialog.setAlwaysOnTop(true);
-                        dialog.setModal(true);
-                        dialog.setVisible(true);
-                    }
+                e -> {
+                    //关于作者
+                    JDialog dialog = new JDialog();
+                    JLabel label = new JLabel(new ImageIcon("image/about.jpg"));
+                    label.setBounds(0,0,479,479);
+                    dialog.getContentPane().add(label);
+                    dialog.setSize(500,500);
+                    dialog.setLocationRelativeTo(null);
+                    dialog.setAlwaysOnTop(true);
+                    dialog.setModal(true);
+                    dialog.setVisible(true);
                 }
         );
 
