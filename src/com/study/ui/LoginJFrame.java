@@ -1,8 +1,13 @@
 package com.study.ui;
 
+import com.study.bean.User;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 public class LoginJFrame extends JFrame implements MouseListener {
     private JDialog JD = new JDialog();
@@ -10,9 +15,11 @@ public class LoginJFrame extends JFrame implements MouseListener {
     private JButton regButton = new JButton();
     private JTextField nameInput = new JTextField();
     private JTextField passwordInput = new JTextField();
+    private HashSet<User> users = new HashSet<>();
 
 
     public LoginJFrame() {
+        users.add(new User("zhangsan", "123456"));
         initJFrame();
 
         initJLabel();
@@ -88,7 +95,7 @@ public class LoginJFrame extends JFrame implements MouseListener {
             if(name.equals("")&&password.equals("")) {
                 showJDialog("用户名和密码为空");
             }
-            else if(name.equals("zhangsan")&&password.equals("123456")){
+            else if(users.contains(new User(name, password))){
                 this.setVisible(false);
                 new GameJFrame();
             }
